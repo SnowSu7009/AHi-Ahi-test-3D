@@ -1,117 +1,90 @@
 <!DOCTYPE html>
-
 <html lang="th">
-
 <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SNOWSU</title>
 
-<meta charset="UTF-8" />
-
-<title>SNOWSU </title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai&display=swap" rel="stylesheet" />
-
-<link rel="stylesheet" href="style.css" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-
-
 <header>
-
-<div class="main-title">ISNOW</div>
-
-<div class="sub-title">3DModel (AR)</div>
-
+  <div class="main-title">ISNOW</div>
+  <div class="sub-title">3D Model (AR)</div>
 </header>
 
+<!-- SECTION MODEL -->
+<section class="ar-section">
 
+  <div class="head-title">Mingpu</div>
+  <div class="sub-title">EIEI</div>
 
-<!-- ISUIZA 1-->
+  <model-viewer
+    id="model1"
+    src="ISUIZA.glb"
+    ios-src="ISUIZA.usdz"
+    alt="ISUIZA 3D Model"
+    ar
+    ar-modes="scene-viewer webxr quick-look"
+    camera-controls
+    auto-rotate
+    shadow-intensity="1"
+    environment-image="neutral"
+    loading="eager"
+    reveal="auto"
+    style="width: 100%; height: 400px;"
+  >
+    <!-- ปุ่ม AR มาตรฐาน -->
+    <button slot="ar-button" class="ar-button">
+      เปิด AR
+    </button>
+  </model-viewer>
 
-<div class="ar-section">
+  <!-- ปุ่ม AR แบบ Custom -->
+  <button class="ar-button" onclick="triggerAR('model1')">
+    Play AR
+  </button>
 
-<div class="head-title">Mingpu</div>
-
-<div class="sub-title">EIEI</div>
-
-<model-viewer id="model1"
-
-     src="ISUIZA.glb"
-
-     ios-src="ISUIZA.usdz"
-
-     ar
-
-     ar-modes="scene-viewer webxr quick-look"
-
-     camera-controls
-
-     autoplay
-
-     auto-rotate
-
-     shadow-intensity="1"
-
-     shadow-softness="1"
-
-     environment-image="neutral.hdr"
-
-     loading="eager"
-
-     reveal="auto"
-
-     style="width: 100%; height: 400px;">
-
-</model-viewer>
-
-<button class="ar-button" onclick="triggerAR('model1')">Play AR</button>
-
-</div>
+</section>
 
 <footer>
-
-<div class="footer-link"><strong>Facebook:</strong> <a href="https://www.facebook.com/SnowDayGrape" target="_blank">facebook.com/SnowDayGrape</a></div>
-
+  <div class="footer-link">
+    <strong>Facebook:</strong>
+    <a href="https://www.facebook.com/SnowDayGrape" target="_blank" rel="noopener">
+      facebook.com/SnowDayGrape
+    </a>
+  </div>
 </footer>
 
-
-
-<!-- ✅ โหลด model-viewer หลังสุดเพื่อให้โหลดหน้าเว็บเร็วขึ้น -->
-
-<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-
-
-
-<!-- ✅ Script ปุ่ม Play AR พร้อม catch error -->
-
-<script>
-
-   function triggerAR(id) {
-
-     const viewer = document.getElementById(id);
-
-     if (viewer && viewer.activateAR) {
-
-       viewer.activateAR().catch((error) => {
-
-         alert("AR ไม่พร้อมบนอุปกรณ์นี้ หรือถูกบล็อกโดย browser\n(แนะนำให้กดปุ่ม AR บนมุมขวาของโมเดลแทน)");
-
-         console.warn("activateAR failed:", error);
-
-       });
-
-     }
-
-   }
-
+<!-- โหลด model-viewer -->
+<script type="module"
+  src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
+  defer>
 </script>
 
+<script>
+  function triggerAR(id) {
+    const viewer = document.getElementById(id);
 
+    if (!viewer) {
+      alert("ไม่พบโมเดล");
+      return;
+    }
+
+    if (viewer.canActivateAR) {
+      viewer.activateAR().catch((error) => {
+        alert("AR ไม่พร้อมบนอุปกรณ์นี้ หรือถูกบล็อกโดย Browser\nแนะนำให้ใช้ Chrome บน Android หรือ Safari บน iPhone");
+        console.warn("activateAR failed:", error);
+      });
+    } else {
+      alert("อุปกรณ์นี้ไม่รองรับ AR");
+    }
+  }
+</script>
 
 </body>
-
 </html>
