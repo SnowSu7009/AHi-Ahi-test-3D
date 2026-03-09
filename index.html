@@ -1,136 +1,164 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SNOWSU</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SNOWSU</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<script type="module" src="https://unpkg.com/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
+
 </head>
 
 <body>
 
 <header>
-  <div class="main-title">ISNOW all 3D</div>
-  <div class="sub-title">3D Model (AR)</div>
+<div class="main-title">ISNOW all 3D</div>
+<div class="sub-title">3D Model (AR)</div>
 </header>
+
 
 <!-- CH1 -->
 <section class="ar-section">
-  <div class="head-title">Mingpu</div>
-  <div class="sub-title">EIEI</div>
 
-  <model-viewer
-    id="model1"
-    src="IZA.glb"
-    ios-src="IZA.usdz"
-    ar
-    ar-modes="scene-viewer webxr quick-look"
-    camera-controls
-    auto-rotate
-    shadow-intensity="1"
-    environment-image="neutral"
-    style="width:100%; height:400px;">
-    
-    <button slot="ar-button" class="ar-button">
-      เปิด AR
-    </button>
-  </model-viewer>
+<div class="head-title">Mingpu</div>
+<div class="sub-title">EIEI</div>
 
-  <button class="ar-button" onclick="triggerAR('model1')">
-    Play AR
-  </button>
+<model-viewer
+id="model1"
+src="IZAS.glb"
+ios-src="IZAS.usdz"
+ar
+ar-modes="scene-viewer webxr quick-look"
+camera-controls
+auto-rotate
+autoplay
+animation-name="*"
+shadow-intensity="1"
+environment-image="neutral"
+style="width:100%; height:400px;">
+
+<button slot="ar-button" class="ar-button">
+เปิด AR
+</button>
+
+</model-viewer>
+
+<button class="ar-button" onclick="triggerAR('model1')">
+Play AR
+</button>
+
 </section>
+
 
 <!-- CH2 -->
 <section class="ar-section">
-  <div class="head-title">Mingpu</div>
-  <div class="sub-title">EIEI</div>
 
-  <model-viewer
-    id="model2"
-    src="IRI.glb"
-    ios-src="IRI.usdz"
-    ar
-    ar-modes="scene-viewer webxr quick-look"
-    camera-controls
-    auto-rotate
-    shadow-intensity="1"
-    environment-image="neutral"
-    style="width:100%; height:400px;">
-    
-    <button slot="ar-button" class="ar-button">
-      เปิด AR
-    </button>
-  </model-viewer>
+<div class="head-title">Mingpu</div>
+<div class="sub-title">EIEI</div>
 
-  <button class="ar-button" onclick="triggerAR('model2')">
-    Play AR
-  </button>
+<model-viewer
+id="model2"
+src="IRI.glb"
+ios-src="IRI.usdz"
+ar
+ar-modes="scene-viewer webxr quick-look"
+camera-controls
+auto-rotate
+autoplay
+animation-name="*"
+shadow-intensity="1"
+environment-image="neutral"
+style="width:100%; height:400px;">
+
+<button slot="ar-button" class="ar-button">
+เปิด AR
+</button>
+
+</model-viewer>
+
+<button class="ar-button" onclick="triggerAR('model2')">
+Play AR
+</button>
+
 </section>
 
-  <!-- CH3 -->
+
+<!-- CH3 -->
 <section class="ar-section">
-  <div class="head-title">Mingpu</div>
-  <div class="sub-title">EIEI</div>
 
-  <model-viewer
-    id="model3"
-    src="Donut.glb"
-    ios-src="Donut.usdz"
-    ar
-    ar-modes="scene-viewer webxr quick-look"
-    camera-controls
-    auto-rotate
-    shadow-intensity="1"
-    environment-image="neutral"
-    style="width:100%; height:400px;">
-    
-    <button slot="ar-button" class="ar-button">
-      เปิด AR
-    </button>
-  </model-viewer>
+<div class="head-title">Mingpu</div>
+<div class="sub-title">EIEI</div>
 
-  <button class="ar-button" onclick="triggerAR('model3')">
-    Play AR
-  </button>
+<model-viewer
+id="model3"
+src="Donut.glb"
+ios-src="Donut.usdz"
+ar
+ar-modes="scene-viewer webxr quick-look"
+camera-controls
+auto-rotate
+autoplay
+animation-name="*"
+shadow-intensity="1"
+environment-image="neutral"
+style="width:100%; height:400px;">
+
+<button slot="ar-button" class="ar-button">
+เปิด AR
+</button>
+
+</model-viewer>
+
+<button class="ar-button" onclick="triggerAR('model3')">
+Play AR
+</button>
+
 </section>
+
 
 <footer>
-  <div class="footer-link">
-    <strong>Facebook:</strong>
-    <a href="https://www.facebook.com/SnowDayGrape" target="_blank" rel="noopener">
-      facebook.com/SnowDayGrape
-    </a>
-  </div>
+
+<div class="footer-link">
+<strong>Facebook:</strong>
+<a href="https://www.facebook.com/SnowDayGrape" target="_blank">
+facebook.com/SnowDayGrape
+</a>
+</div>
+
 </footer>
 
-<!-- โหลด model-viewer -->
-<script type="module"
-  src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
-  defer>
-</script>
 
 <script>
-  function triggerAR(id) {
-    const viewer = document.getElementById(id);
 
-    if (!viewer) {
-      alert("ไม่พบโมเดล");
-      return;
-    }
+function triggerAR(id) {
 
-    if (viewer.canActivateAR) {
-      viewer.activateAR().catch((error) => {
-        alert("AR ไม่พร้อมบนอุปกรณ์นี้ หรือถูกบล็อกโดย Browser\nแนะนำให้ใช้ Chrome บน Android หรือ Safari บน iPhone");
-        console.warn("activateAR failed:", error);
-      });
-    } else {
-      alert("อุปกรณ์นี้ไม่รองรับ AR");
-    }
-  }
+const viewer = document.getElementById(id);
+
+if (!viewer) {
+alert("ไม่พบโมเดล");
+return;
+}
+
+if (viewer.canActivateAR) {
+
+viewer.activateAR().catch((error)=>{
+
+alert("AR ไม่พร้อมบนอุปกรณ์นี้\nแนะนำให้ใช้ Chrome Android หรือ Safari iPhone");
+console.warn(error);
+
+});
+
+} else {
+
+alert("อุปกรณ์นี้ไม่รองรับ AR");
+
+}
+
+}
+
 </script>
 
 </body>
